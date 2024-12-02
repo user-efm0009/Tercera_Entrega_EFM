@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ligue 1</title>
+    <link rel="shortcut icon" href="../Images/FAVICON/logo-ligue1-2020-lbox-300x300-FFF-removebg-preview.png" type="image/x-icon">
+    <style>
+        /* styles.css */ 
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            overflow: hidden; 
+        } 
+
+        * {
+            opacity: 0;
+            animation: aparecer 2s forwards;
+            -webkit-animation: aparecer 2s forwards;
+        }
+
+        @keyframes aparecer {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .video-container { 
+            position: relative; 
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden; 
+        } 
+        video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        } 
+        .stop-button { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background-color: greenyellow; 
+            color: black; 
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            z-index: 10; 
+        } 
+        .animado { 
+            opacity: 0; 
+            animation: aparecer 2s forwards; 
+            -webkit-animation: aparecer 2s forwards; 
+        } 
+        @keyframes aparecer { 
+            to { 
+                opacity: 1; 
+            } 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video id="introVideo" autoplay>
+            <source
+                src="../Media/Videos/Ligue1.mp4"
+                type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <button class="stop-button" onclick="redirigir()">Saltar Introducción</button>
+    </div>
+    <script src="../JS/Ligue1.js"></script>
+</body>
+
+</html>

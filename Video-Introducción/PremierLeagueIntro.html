@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premier League</title>
+    <link rel="shortcut icon" href="https://logodownload.org/wp-content/uploads/2016/03/premier-league-5.png" type="image/x-icon">
+    <style>
+        /* styles.css */ 
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            height: 100%; 
+            overflow: hidden; 
+        } 
+        .video-container { 
+            position: relative; 
+            width: 100%; 
+            height: 100%; 
+            overflow: hidden; 
+        } 
+        video { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        } 
+        .stop-button { 
+            position: absolute; 
+            top: 10px; 
+            right: 10px; 
+            background-color: purple; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            border-radius: 5px; 
+            z-index: 10; 
+        } 
+        .animado { 
+            opacity: 0; 
+            animation: aparecer 2s forwards; 
+            -webkit-animation: aparecer 2s forwards; 
+        } 
+        @keyframes aparecer { 
+            to { 
+                opacity: 1; 
+            } 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-container">
+        <video id="introVideo" autoplay>
+            <source
+                src="../Media/Videos/PremierLeague.mp4"
+                type="video/mp4">
+            Tu navegador no soporta la etiqueta de video.
+        </video>
+        <button class="stop-button" onclick="redirigir()">Saltar Introducción</button>
+    </div>
+    <script>
+        document.getElementById('introVideo').addEventListener('ended', function () {
+            window.location.href = '../../HTML-Principal/PremierLeague.html'; // Cambia esta URL por la de tu página HTML
+        });
+
+        function redirigir() {
+            window.location.href = '../../HTML-Principal/PremierLeague.html'; // Cambia esta URL por la de tu página HTML
+        }
+    </script>
+</body>
+
+</html>
