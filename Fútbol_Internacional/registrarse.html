@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fútbol Internacional - Registro</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/5146/5146927.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+  
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+  }
+  
+  /* Móviles (pantallas pequeñas) */
+  @media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+  
+    .nav {
+        font-size: 12px;
+    }
+  
+    .main {
+        padding: 10px;
+    }
+  
+    form h4 {
+        font-size: 18px;
+    }
+  
+    label {
+        font-size: 14px;
+    }
+  
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+  }
+  
+
+        /* Reset general */
+body, h2, p, form, label, input, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Estilo del cuerpo */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Estilo del contenedor */
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Estilo de encabezado */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Estilo de los formularios */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo de etiquetas y entradas */
+label {
+    margin: 10px 0 5px 0;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo de botones */
+button {
+    padding: 10px;
+    background-color: violet;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: violet;
+}
+
+body {
+    background-image: url(https://www.ultraimagehub.com/wallpapers/tr:flp-false,gx-0.2,gy-0.4,q-75,rh-3264,rw-5824,th-1080,tw-1920/1285202994530357321.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+/* Estilo de enlaces */
+a {
+    color: violet;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin-top: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registro</h2>
+        <form action="/registrar" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre"><br>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo"><br>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena"><br>
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono"><br>
+            <label for="fechadenacimiento">Fecha de nacimiento:</label>
+            <input type="date" id="fechadenacimiento" name="fechadenacimiento"><br>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="Registro.html">Iniciar sesión</a></p>
+    </div>
+</body>
+</html>
