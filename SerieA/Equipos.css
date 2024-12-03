@@ -1,0 +1,134 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: blue;
+    border-bottom: 3px solid white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+}
+
+.body {
+    grid-area: body;
+    text-align: center;
+    background-position: center;
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+/* PÁGINA ENTERA - Imagen de fondo */
+
+body {
+    background-image: url(https://media.contentapi.ea.com/content/dam/ea/fifa/fifa-22/news/common/ratings-reveal/serie-a/serie-a-featured-image-16x9.png.adapt.crop191x100.628p.png);
+    background-size: cover;
+    background-position: center;
+}
+
+/* NAV - Barra de navegación */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: blue;
+  }
+  
+  li {
+    list-style-type: none;
+    float: left;
+    background-color: blue;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: white;
+    color: blue;
+  }
+  
+  .active {
+    background-color: white;
+    color: blue;
+  }
+
+/* BODY - Tamaño de las imagenes */
+
+img {
+    width: 150px;
+    height: 150px;
+}
