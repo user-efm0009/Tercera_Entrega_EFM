@@ -1,0 +1,199 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+    gap: 10px;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo titulo"
+        "imagen imagen imagen descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion"
+        "imagen imagen imagen descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion"
+        "imagen imagen imagen descripcion descripcion descripcion descripcion descripcion descripcion descripcion descripcion"
+        "video video video video video video video video video video video"
+        "video video video video video video video video video video video"
+        "video video video video video video video video video video video";
+    font-family: Arial, sans-serif;
+}
+
+.nav {
+    grid-area: nav;
+    background-color: black;
+    border-bottom: 3px solid green;
+    position: fixed;
+    width: 100%;
+    top: 0; /* Asegura que quede pegado arriba */
+    left: 0;
+}
+
+.titulo {
+    grid-area: titulo;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.titulo h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.imagen {
+    grid-area: imagen;
+    text-align: center;
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+}
+
+.descripcion {
+    grid-area: descripcion;
+    padding: 20px;
+    text-align: justify;
+    font-size: 1.2em;
+}
+
+.video {
+    grid-area: video;
+    padding: 20px;
+    text-align: center;
+}
+
+.video iframe {
+    border: none;
+    border-radius: 10px;
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+  
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+  }
+  
+  /* Móviles (pantallas pequeñas) */
+  @media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+  
+    .nav {
+        font-size: 12px;
+    }
+  
+    .main {
+        padding: 10px;
+    }
+  
+    form h4 {
+        font-size: 18px;
+    }
+  
+    label {
+        font-size: 14px;
+    }
+  
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+  }
+  
+
+/* PÁGINA ENTERA - Imagen de fondo */
+
+body {
+    background-image: url(https://img.freepik.com/foto-gratis/fondo-papel-tapiz-colorido-borroso-artistico_58702-8445.jpg?semt=ais_hybrid);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+/* NAV - Barra de navegación */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+  }
+  
+  li {
+    list-style-type: none;
+    float: left;
+    background-color: black;
+  }
+  
+  li a {
+    display: block;
+    color: green;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover:not(.active) {
+    background-color: green;
+    color: black;
+  }
+  
+  .active {
+    background-color: green;
+    color: black;
+  }
+
+/* NAV - FUENTE DE LETRA */
+@font-face {
+    font-family: 'EuropaLeagueFont';
+    src: url('../../Fonts/europatitlebold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Aplica la fuente */
+.champions-text {
+    font-family: 'EuropaLeagueFont', sans-serif;
+}
+
+
+  /* Unidades relativas */
+
+.titulo h1 {
+    text-align: center;
+    color: white;
+}
+
+.descripcion h2 {
+    text-align: center;
+    color: black;
+}
+
+.descripcion h3 {
+    text-align: center;
+    color: black;
+}
+
+.descripcion p {
+    font-size: 1rem; /* Relativo al tamaño de la fuente raíz */
+    line-height: 1.5em; /* Relativo al tamaño de la fuente del contenedor */
+    color: white;
+    text-align: center;
+}
