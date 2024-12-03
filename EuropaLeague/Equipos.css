@@ -1,0 +1,418 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body";
+}
+
+.nav { 
+    grid-area: nav;
+    background-color: orange;
+    border-bottom: 3px solid black;
+    padding: 0;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.body { 
+    grid-area: body;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+  
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+  }
+  
+  /* Móviles (pantallas pequeñas) */
+  @media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+  
+    .nav {
+        font-size: 12px;
+    }
+  
+    .main {
+        padding: 10px;
+    }
+  
+    form h4 {
+        font-size: 18px;
+    }
+  
+    label {
+        font-size: 14px;
+    }
+  
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+  }
+  
+
+/* PÁGINA ENTERA - IMAGEN DE FONDO */
+body {
+    background-image: url(https://i.ytimg.com/vi/eL3U3mC1l5Y/maxresdefault.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+/* NAV - FUENTE DE LETRA */
+@font-face {
+    font-family: 'EuropaLeagueFont';
+    src: url('../../Fonts/europatitlebold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Aplica la fuente */
+.champions-text {
+    font-family: 'EuropaLeagueFont', sans-serif;
+}
+
+/* NAV - BARRA DE NAVEGACIÓN */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: orange;
+    display: flex;
+    justify-content: center; /* Centra los elementos de la lista */
+}
+  
+li {
+    float: left;
+}
+  
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: black;
+    color: orange;
+}
+  
+.active {
+    background-color: black;
+    color: orange;
+}
+
+/* NAV - Eliminar los puntos de la barra de navegación */
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* BODY - Para la colocación de los equipos */
+.Equipo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    filter: blur(5px); /* Aplica un desenfoque de 5 píxeles */
+    filter: contrast(200%); /* Duplica el contraste */
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px black);
+}
+
+.Equipo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Equipo:hover img {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.text-hover {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.Equipo:hover .text-hover {
+    opacity: 1;
+}
+
+/* BODY - Animación hover */
+
+
+.Equipo img#AJA:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#AND:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px purple);
+}
+
+
+.Equipo img#ATH:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#AZ:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#BES:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px black);
+}
+
+
+.Equipo img#BOD:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px yellow);
+}
+
+
+.Equipo img#BRA:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#DYK:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px blue);
+}
+
+
+.Equipo img#ELF:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px yellow);
+}
+
+
+.Equipo img#FCSB:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px darkblue);
+}
+
+
+.Equipo img#FEN:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px yellow);
+}
+
+
+.Equipo img#FER:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px green);
+}
+
+
+.Equipo img#FRA:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#GAL:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px orange);
+}
+
+
+.Equipo img#HOF:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px blue);
+}
+
+
+.Equipo img#LAZ:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px lightblue);
+}
+
+
+.Equipo img#LUD:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px green);
+}
+
+
+.Equipo img#LYO:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#MTA:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px darkblue);
+}
+
+
+.Equipo img#MAL:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px lightblue);
+}
+
+
+.Equipo img#MUN:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#MID:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px darkred);
+}
+
+
+.Equipo img#NIC:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#OLY:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#PAOK:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px black);
+}
+
+
+.Equipo img#POR:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px blue);
+}
+
+
+.Equipo img#QAR:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px white);
+}
+
+
+.Equipo img#RAN:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px blue);
+}
+
+
+.Equipo img#RSO:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px blue);
+}
+
+
+.Equipo img#RFS:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px blue);
+}
+
+
+.Equipo img#ROM:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px orange);
+}
+
+
+.Equipo img#SLA:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#TOT:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px white);
+}
+
+
+.Equipo img#TWE:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
+
+
+.Equipo img#USG:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px yellow);
+}
+
+
+.Equipo img#VIK:hover {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px red);
+}
