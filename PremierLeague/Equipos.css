@@ -1,0 +1,153 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: purple;
+    border-bottom: 3px solid white;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.body {
+    grid-area: body;
+    text-align: center;
+    background-position: center;
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+/* PÁGINA ENTERA - Imagen de fondo */
+
+body {
+    background-image: url(https://pbs.twimg.com/media/Ej44WAKXkAMY8Bz.jpg:large);
+    background-size: cover;
+}
+
+/* NAV - Barra de navegación horizontal */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+    }
+    
+    li {
+      list-style-type: none;
+      float: left;
+      background-color: purple;
+    }
+    
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+    
+    li a:hover:not(.active) {
+      background-color: white;
+      color: blueviolet;
+    }
+    
+    .active {
+      background-color: white;
+      color: purple;
+    }
+
+/* NAV - FUENTE DE LETRA */
+
+@font-face {
+    font-family: 'PremierLeagueFont';
+    src: url('../Fonts/Barclays\ Premier\ League.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Aplica la fuente */
+  .premierleague-text {
+    font-family: 'PremierLeagueFont', sans-serif;
+  }
+
+/* BODY - Tamaño de las imagenes */
+
+/* Contenedor para las imágenes */
+.body img {
+    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 8px black);
+    margin: 10px;
+  }
+
+img {
+    width: 150px;
+    height: 150px;
+}

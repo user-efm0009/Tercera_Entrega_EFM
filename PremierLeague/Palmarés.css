@@ -1,0 +1,122 @@
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+    .container {
+        grid-template-areas:
+            "nav"
+            "header"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+  
+    .nav {
+        flex-direction: column;
+        text-align: center;
+    }
+  }
+  
+  /* Móviles (pantallas pequeñas) */
+  @media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+  
+    .nav {
+        font-size: 12px;
+    }
+  
+    .main {
+        padding: 10px;
+    }
+  
+    form h4 {
+        font-size: 18px;
+    }
+  
+    label {
+        font-size: 14px;
+    }
+  
+    input[type="submit"] {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+  }
+  
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #dddddd;
+    text-align: center;
+}
+th {
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+th:hover {
+    background-color: white;
+    color: purple;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+tr:hover {
+    background-color: #f1f1f1;
+    color: purple;
+    transition: background-color 0.3s ease;
+}
+
+img.equipo-logo {
+ height: 1em;
+ vertical-align: middle;
+ margin-left: 10px;
+}
+
+img.premier-trofeo {
+    height: 1.5em;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+
+/* Poner un hover en la columna de campeon con el año que gano los mundiales */
+
+tr:nth-child(30):hover {
+border: 1.5px solid black;
+background-image: url(https://static.vecteezy.com/system/resources/previews/006/349/420/non_2x/wallpaper-background-gradient-with-red-and-yellow-color-free-photo.jpg);
+background-size: cover;
+background-position: center;
+color: black;
+}
+
