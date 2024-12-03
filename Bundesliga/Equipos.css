@@ -1,0 +1,139 @@
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: black;
+    border-bottom: 3px solid red;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+}
+
+.body {
+    grid-area: body;
+    text-align: center;
+    background-position: center;
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+/* PÁGINA ENTERA - Imagen de fondo */
+
+body {
+    background-image: url(https://i.pinimg.com/474x/55/0c/7d/550c7d825116a9cd5433e7ac06a0dc47.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/* NAV - Barra de navegación */
+
+ul {
+    list-style-type: none; /* Sin estilo de lista */
+    margin: 0; /* Sin margen */
+    padding: 0; /* Sin padding */
+    overflow: hidden; /* Evita que los elementos floten fuera del contenedor */
+    background-color: white; /* Fondo blanco */
+  }
+  
+  /* Estilo para los elementos de la lista */
+  li {
+    list-style-type: none; /* Sin estilo de lista */
+    float: left; /* Flota a la izquierda */
+    background-color: black; /* Fondo negro */
+  }
+  
+  /* Estilo para los enlaces de navegación */
+  li a {
+    display: block; /* Bloque de visualización */
+    color: red; /* Color rojo para el texto */
+    text-align: center; /* Centra el texto */
+    padding: 14px 16px; /* Padding interno */
+    text-decoration: none; /* Sin subrayado */
+  }
+  
+  /* Estilo para los enlaces al pasar el ratón */
+  li a:hover:not(.active) {
+    background-color: red; /* Fondo rojo al pasar el ratón */
+    color: white; /* Texto blanco al pasar el ratón */
+  }
+  
+  /* Estilo para el enlace activo */
+  .active {
+    background-color: red; /* Fondo rojo */
+    color: white; /* Texto blanco */
+  }
+
+/* BODY - Tamaño de las imagenes */
+
+img {
+    width: 150px;
+    height: 150px;
+}
