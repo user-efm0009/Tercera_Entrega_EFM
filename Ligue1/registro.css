@@ -1,0 +1,215 @@
+
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "nav nav nav nav nav nav nav nav nav nav nav"
+      "body body body body body body body body body body body"
+      "body body body body body body body body body body body"
+      "body body body body body body body body body body body"
+      "body body body body body body body body body body body"
+      "body body body body body body body body body body body"
+      "body body body body body body body body body body body"
+      "body body body body body body body body body body body";
+  }
+  
+  .nav { 
+    grid-area: nav;
+    background-color: black;
+    border-bottom: 3px solid greenyellow; /* Bordes dorados */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+ }
+  
+  .body { 
+    grid-area: body;
+ }
+  
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+/* NAV - Barra de navegación */
+
+  /* 1- Estilos para la lista de navegación */
+  ul {
+    list-style-type: none; /* Sin puntos de lista */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita que los elementos floten fuera del contenedor */
+    background-color: black;
+  }
+
+  /* 2- Estilos para los elementos de la lista */
+li {
+  list-style-type: none;
+  float: left; /* Flota a la izquierda */
+  background-color: black;
+}
+
+  /* 3- Estilos para los enlaces de navegación */
+  li a {
+    display: block; /* Bloque de visualización */
+    color: lightgreen;
+    text-align: center;
+    padding: 14px 16px; /* Padding interno */
+    text-decoration: none; /* Sin subrayado */
+  }
+
+  /* 4- Estilos para los enlaces al pasar el ratón */
+  li a:hover:not(.active) {
+    background-color: greenyellow;
+    color: black;
+  }
+
+  /* 5- Estilos para el enlace activo */
+  .active {
+    background-color: greenyellow;
+    color: black;
+  }
+
+  /* */
+
+  #Clasificación:hover #Clasificación-content {
+    display: block;
+  }
+
+/* BODY - Formulario */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+  /* Estilo para el body */
+body {
+    background-image: url('https://assets.origami-02-prod-1ot7.decathlon.io//d503293713a5cf9d0a34c8a9f496236d/landings/l1-ball-languages/assets/imgs/l1/details/00.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal del login */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Título */
+.login-container h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Grupo de inputs */
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+/* Etiquetas */
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Campos de texto */
+.input-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+/* Botón de inicio de sesión */
+.input-group button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: greenyellow;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Cambio de color al pasar el cursor sobre el botón */
+.input-group button:hover {
+    background-color: black;
+    color: greenyellow;
+}
+
+/* Enlace de registro */
+.register-link {
+    display: block;
+    margin-top: 1rem;
+    color: gold;
+    text-decoration: none;
+}
+
+/* Cambio de color al pasar el cursor sobre el enlace */
+.register-link:hover {
+    text-decoration: underline;
+}
