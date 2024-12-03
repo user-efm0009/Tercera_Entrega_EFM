@@ -1,0 +1,257 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.5fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body"
+        "body body body body body body body body body body body";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: white;
+    border-bottom: 3px solid red;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.body {
+    grid-area: body;
+    text-align: center;
+    align-items: center;
+    height: 50vh;
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* 1- Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+/* NAV - Barra de navegación */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  li {
+    list-style-type: none;
+    float: left;
+    background-color: white;
+  }
+  
+  li a {
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: red;
+    color: white;
+  }
+  
+  .active {
+    background-color: red;
+    color: white;
+  }
+
+
+
+/* TODA LA PÁGINA - Imagen de fondo */
+
+body {
+    background-image: url(https://pixelesypalomitas.es/images/post/es_ES_vod/deportes-futbol-la-liga.svg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* BODY - Tamaño de las imagenes */
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+
+/* BODY - Texto hover para las imagenes */
+
+.text-hover {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* NAV - FUENTE DE LETRA */
+
+@font-face {
+  font-family: 'LaLigaEASportsFont';
+  src: url('../../Fonts/EASPORTS15.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Aplica la fuente */
+.laligaeasports-text {
+  font-family: 'LaLigaEASportsFont', sans-serif;
+}
+
+/* BODY - Efecto para las imagenes */
+
+/* Contenedor para las imágenes */
+.body img {
+  transition: filter 0.3s ease;
+  filter: drop-shadow(0 0 8px black);
+}
+
+/* Efecto de borde personalizado al pasar el ratón */
+
+img.ATH:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.ATM:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.OSA:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.LEG:hover {
+  filter: drop-shadow(0 0 8px blue);
+}
+
+img.ALA:hover {
+  filter: drop-shadow(0 0 8px blue);
+}
+
+img.BAR:hover {
+  filter: drop-shadow(0 0 8px blue);
+}
+
+img.GET:hover {
+  filter: drop-shadow(0 0 8px blue);
+}
+
+img.GIR:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.RAY:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.CEL:hover {
+  filter: drop-shadow(0 0 8px lightblue);
+}
+
+img.ESP:hover {
+  filter: drop-shadow(0 0 8px lightblue);
+}
+
+img.MLL:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.BET:hover {
+  filter: drop-shadow(0 0 8px green);
+}
+
+img.RMA:hover {
+  filter: drop-shadow(0 0 8px blue);
+}
+
+img.RSO:hover {
+  filter: drop-shadow(0 0 8px blue);
+}
+
+img.VLL:hover {
+  filter: drop-shadow(0 0 8px purple);
+}
+
+img.SEV:hover {
+  filter: drop-shadow(0 0 8px red);
+}
+
+img.LPA:hover {
+  filter: drop-shadow(0 0 8px yellow);
+}
+
+img.VAL:hover {
+  filter: drop-shadow(0 0 8px orange);
+}
+
+img.VIL:hover {
+  filter: drop-shadow(0 0 8px yellow);
+}
