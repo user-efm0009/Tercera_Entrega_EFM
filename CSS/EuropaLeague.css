@@ -1,0 +1,194 @@
+/* PÁGINA ENTERA - LAYOUT */
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.33fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.35fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+      "nav nav nav nav nav nav nav nav nav nav nav"
+      "header header header header header header header header header header header"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+.nav {
+  grid-area: nav;
+  background-color: orange;
+  border-bottom: 3px solid black;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+.header {
+  grid-area: header;
+}
+
+.aside {
+  grid-area: aside;
+}
+
+.main {
+  grid-area: main;
+}
+
+.body {
+  grid-area: body;
+}
+
+.footer {
+  grid-area: footer;
+  background-color: black;
+}
+
+/* PÁGINA ENTERA - Animaciones*/
+
+* {
+  opacity: 0;
+  animation: aparecer 2s forwards;
+  -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+  to {
+      opacity: 1;
+  }
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+
+/* PÁGINA ENTERA - IMAGEN DE FONDO */
+
+body {
+  background-image: url(https://m.media-amazon.com/images/S/pv-target-images/cc79efcbc1edf5d6093e187b4cacd85b3f7c4ca16f47540be9f3524d58f37829.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+
+/* NAV - FUENTE DE LETRA */
+
+@font-face {
+  font-family: 'EuropaLeagueFont';
+  src: url('../Fonts/europatitlebold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Aplica la fuente */
+.europaleague-text {
+  font-family: 'EuropaLeagueFont', sans-serif;
+}
+
+
+/* NAV - BARRA DE NAVEGACIÓN */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: orange;
+}
+
+li {
+  list-style-type: none;
+  float: left;
+  background-color: orange;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: black;
+  color: orange;
+}
+
+.active {
+  background-color: black;
+  color: orange;
+}
+
+.header h1 {
+  color: white;
+  text-align: center;
+}
+
+.aside h2 {
+  text-align: center;
+  color: white;
+}
+
+.main h2, h3 {
+  color: white;
+}
+
+p {
+  color: white;
+}
+
+.footer p {
+  text-align: center;
+}

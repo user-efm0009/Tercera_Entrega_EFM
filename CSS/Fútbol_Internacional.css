@@ -1,0 +1,726 @@
+/* LAYOUT */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.40fr 1fr 1fr 1fr 1fr 1fr 1fr 0.60fr;
+    gap: 0px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "header header header header header header header header header header header"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: black;
+    border-bottom: 3px solid violet;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    /* Asegura que quede pegado arriba */
+    z-index: 100;
+    /* Se asegura estar encima de otros elementos */
+}
+
+.header {
+    grid-area: header;
+    margin-top: 0;
+    /* Asegura que no hay espacio superior */
+    padding-top: 0;
+    /* Elimina espacio interno */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.aside {
+    grid-area: aside;
+    margin: auto;
+}
+
+.main {
+    grid-area: main;
+}
+
+.body {
+    grid-area: body;
+    text-align: center;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    /* Puedes ajustar la altura según necesites */
+}
+
+/* PÁGINA ENTERA - Grid para layouts flexibles */
+
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.grid-item {
+    flex: 1 1 300px;
+    margin: 10px;
+    background-color: white;
+    padding: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* Media queries para hacer la página responsive */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+    .container {
+        font-size: 14px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav {
+        order: 1;
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .header {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+
+    .aside {
+        order: 3;
+        width: 100%;
+        text-align: center;
+    }
+
+    .main {
+        order: 4;
+        width: 100%;
+    }
+
+    .body {
+        order: 5;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .footer {
+        order: 6;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: #333;
+        color: white;
+    }
+
+    .main iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav {
+        order: 1;
+        width: 100%;
+        font-size: 10px;
+    }
+
+    .header {
+        order: 2;
+        width: 100%;
+        text-align: center;
+    }
+
+    .aside {
+        order: 3;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+        margin: 10px 0;
+    }
+
+    .main {
+        order: 4;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .body {
+        order: 5;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .footer {
+        order: 6;
+        width: 100%;
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        box-sizing: border-box;
+    }
+
+    .main iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* PÁGINA ENTERA - Imagen de fondo */
+
+body {
+    background-image: url(https://www.ultraimagehub.com/wallpapers/tr:flp-false,gx-0.2,gy-0.6,q-75,rh-3264,rw-5824,th-1080,tw-1920/1285203350085959816.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+/* PÁGINA ENTERA - Animaciones */
+
+* {
+    opacity: 0;
+    animation: aparecer 2s forwards;
+    -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
+}
+
+/* NAV - Barra de navegación */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+li {
+    list-style-type: none;
+    float: left;
+    background-color: black;
+}
+
+li a {
+    display: block;
+    color: violet;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: violet;
+    color: black;
+}
+
+.active {
+    background-color: violet;
+    color: black;
+}
+
+/* HEADER - Animación de cambio de color */
+
+@keyframes colorCambio {
+
+    0%,
+    100% {
+        color: violet;
+    }
+
+    50% {
+        color: gold;
+    }
+}
+
+/* ASIDE - Título */
+
+#titulo-aside {
+    color: violet;
+    text-align: center;
+}
+
+/* ASIDE - Colores de los enlaces */
+
+#EnlaceUCL {
+    color: white;
+}
+
+#EnlaceUEL {
+    color: black;
+}
+
+#EnlaceUECL {
+    color: white;
+}
+
+#EnlaceLALIGA {
+    color: white;
+}
+
+#EnlacePREMIERLEAGUE {
+    color: white;
+}
+
+#EnlaceSERIEA {
+    color: black;
+}
+
+#EnlaceBUNDESLIGA {
+    color: red;
+}
+
+#EnlaceLIGUE1 {
+    color: black;
+}
+
+#EnlaceBALONDEORO {
+    color: black;
+}
+
+#EnlaceMUNDIAL {
+    color: black;
+}
+
+/* ASIDE - Efectos hover de los enlaces */
+
+#EnlaceUCL:hover {
+    background-image: url(https://www.shutterstock.com/shutterstock/videos/1091891495/thumb/11.jpg?ip=x480);
+    color: white;
+    cursor: pointer;
+}
+
+#EnlaceUEL:hover {
+    background-image: url(https://editorial.uefa.com/resources/0292-1c2ba03e580a-bfb505638296-1000/uefa_europa_league_2024_25_league_phase_draw.jpeg);
+    color: white;
+    cursor: pointer;
+}
+
+#EnlaceUECL:hover {
+    background-image: url(https://apuntesderabona.com/wp-content/uploads/2021/09/conference-league-thegem-blog-default.jpg);
+    color: white;
+    cursor: pointer;
+}
+
+#EnlaceLALIGA:hover {
+    background-image: url(https://www.shutterstock.com/image-illustration/red-white-black-colorful-blur-260nw-1952418175.jpg);
+    color: white;
+    cursor: pointer;
+}
+
+#EnlacePREMIERLEAGUE:hover {
+    background-image: url(https://static.vecteezy.com/system/resources/thumbnails/002/915/080/small/purple-rectangle-curve-background-free-vector.jpg);
+    color: white;
+    cursor: pointer;
+}
+
+#EnlaceSERIEA:hover {
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy8A70R1GWs3vD2ebpfSgv91YyMEvWcz_ZQA&s);
+    color: black;
+    cursor: pointer;
+}
+
+#EnlaceBUNDESLIGA:hover {
+    background-image: url(https://media.istockphoto.com/id/1467859701/es/foto/rojo-y-negro.jpg?s=612x612&w=0&k=20&c=AYR8AibuCqTZMe1aOpeyIUDNCnYTi-0WeBHT-8xZtq0=);
+    color: black;
+    cursor: pointer;
+}
+
+#EnlaceLIGUE1:hover {
+    background-image: url(https://assets.origami-02-prod-1ot7.decathlon.io//d503293713a5cf9d0a34c8a9f496236d/landings/l1-ball-languages/assets/imgs/l1/knowledge/visual.jpg);
+    color: lightgreen;
+    cursor: pointer;
+}
+
+#EnlaceBALONDEORO {
+    border: 1px solid black;
+    border-radius: 50px;
+    color: black;
+    cursor: pointer;
+}
+
+#EnlaceMUNDIAL {
+    border: 1px solid black;
+    border-radius: 50px;
+    color: black;
+    cursor: pointer;
+}
+
+/* ASIDE - Cajas para los enlaces */
+
+#EnlaceUCL {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: blue;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+#EnlaceUEL {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: orange;
+}
+
+#EnlaceUECL {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: green;
+}
+
+#EnlaceLALIGA {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: red;
+}
+
+#EnlacePREMIERLEAGUE {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: purple;
+}
+
+#EnlaceSERIEA {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: cyan;
+}
+
+#EnlaceBUNDESLIGA {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: black;
+}
+
+#EnlaceLIGUE1 {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: greenyellow;
+}
+
+#EnlaceBALONDEORO {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: gold;
+}
+
+#EnlaceMUNDIAL {
+    border: 1px solid black;
+    border-radius: 50px;
+    background-color: lightblue;
+}
+
+/* ASIDE - Botones centrados */
+
+button {
+    width: 200px;
+    /* Ajusta el tamaño del botón según sea necesario */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* Cambia el cursor al dedo apuntando hacia arriba */
+    margin-bottom: 10px;
+}
+
+/* 1- UEFA Champions League */
+.animated-buttonUCL {
+    padding: 5px 15px;
+    font-size: 13px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonUCL:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+    zoom: normal;
+}
+
+/* 2- UEFA Europa League */
+
+.animated-buttonUEL {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonUEL:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 3- UEFA Conference League */
+
+.animated-buttonUECL {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonUECL:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 4- LaLiga EA Sports */
+
+.animated-buttonLALIGA {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonLALIGA:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 5- Premier League */
+
+.animated-buttonPREMIERLEAGUE {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonPREMIERLEAGUE:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 6- Serie A */
+
+.animated-buttonSERIEA {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonSERIEA:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 7- Bundesliga */
+
+.animated-buttonBUNDESLIGA {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonBUNDESLIGA:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 8- Ligue 1 */
+
+.animated-buttonLIGUE1 {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonLIGUE1:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 9- Balón de Oro */
+
+.animated-buttonBALONDEORO {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonBALONDEORO:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 10- Mundial */
+
+.animated-buttonMUNDIAL {
+    padding: 5px 15px;
+    font-size: 13px;
+    color: white;
+    background-color: #3498db;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.animated-buttonMUNDIAL:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+/* 11- Section en general */
+
+.section {
+    background-color: #f1f1f1;
+}
+
+/* MAIN - Formulario */
+
+#Formulario {
+    background-image: url(https://www.ultraimagehub.com/wallpapers/tr:flp-false,gx-0.3,gy-1,q-75,rh-3264,rw-5824,th-1080,tw-1920/1242067372790124606.jpeg);
+    border: 1px solid violet;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 30px;
+}
+
+.main {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.main img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* BODY - Color de texto */
+
+.body h2 {
+    color: white;
+    text-align: center;
+    text-shadow: violet;
+}
+
+.body p {
+    color: white;
+    text-shadow: black;
+}
+
+.body p b u {
+    color: violet;
+    text-shadow: black;
+}
+
+/* FOOTER - Pie de página */
+
+footer p {
+    margin: 0;
+}
+
+/* Unidades relativas */
+
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 1px violet;
+}
+
+h3 {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 1px violet;
+}
+
+p {
+    font-size: 1rem;
+    /* Relativo al tamaño de la fuente raíz */
+    line-height: 1.5em;
+    /* Relativo al tamaño de la fuente del contenedor */
+}

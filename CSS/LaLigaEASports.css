@@ -1,0 +1,236 @@
+/* Layout */
+
+.container {  
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.33fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.33fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "nav nav nav nav nav nav nav nav nav nav nav"
+      "header header header header header header header header header header header"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "footer footer footer footer footer footer footer footer footer footer footer";
+  }
+  
+  .nav { 
+    grid-area: nav;
+    background-color: white;
+    border-bottom: 3px solid red;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    }
+  
+  .header { 
+    grid-area: header; 
+    }
+  
+  .aside { 
+    grid-area: aside; 
+    }
+  
+  .main { 
+    grid-area: main; 
+    }
+  
+  .body { 
+    grid-area: body; 
+    }
+  
+  .footer { 
+    grid-area: footer; 
+    background-color: black;
+    }
+
+/* PÁGINA ENTERA - Animaciones*/
+
+* {
+  opacity: 0;
+  animation: aparecer 2s forwards;
+  -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+  to {
+      opacity: 1;
+  }
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+
+/* Para el contenido de la página web */
+
+body {
+    background-image: url(https://as01.epimg.net/img/especiales/futbol/2024/guia-de-la-liga/landscape.jpg?v=1);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+}
+
+/* PÁGINA ENTERA - Animaciones*/
+
+* {
+  opacity: 0;
+  animation: aparecer 2s forwards;
+  -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+  to {
+      opacity: 1;
+  }
+}
+
+/* NAV - FUENTE DE LETRA */
+
+@font-face {
+  font-family: 'LaLigaEASportsFont';
+  src: url('../Fonts/EASPORTS15.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Aplica la fuente */
+.laligaeasports-text {
+  font-family: 'LaLigaEASportsFont', sans-serif;
+}
+
+
+
+/* MAIN - Logo de la competición Barra de navegación */
+
+
+/* Barra de navegación */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+  li {
+    list-style-type: none;
+    float: left;
+    background-color: white;
+  }
+  
+  li a {
+    display: block;
+    color: red;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: red;
+    color: white;
+  }
+  
+  .active {
+    background-color: red;
+    color: white;
+  }
+
+/* MAIN - Formulario */
+
+  #FormularioLALIGA {
+    background-image: url(https://st.depositphotos.com/1126760/3153/v/450/depositphotos_31537603-stock-illustration-beautiful-red-white-lines-abstract.jpg);
+    border: 1px solid red;
+    color: white;
+    text-align: center;
+    margin: 30px;
+  }
+  
+  .main {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .main img {
+    max-width: 100%;
+    height: auto;
+  }
+
+/* Para animaciones */
+
+.nav ul li img {
+  height: 100%; /* Ajusta la altura para que coincida con los enlaces */
+  width: 100%;
+}
+
+.header h1 {
+  color: black;
+  text-align: center;
+}
+
+.aside h2, .aside p {
+  color: black;
+  text-align: center;
+}
+
+.main h2, main h3 {
+  text-align: center;
+}
+
+.footer p {
+  color: white;
+  text-align: center;
+}

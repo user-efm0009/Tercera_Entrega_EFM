@@ -1,0 +1,245 @@
+/* PÁGINA ENTERA - LAYOUT */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.33fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.35fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "header header header header header header header header header header header"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: darkblue;
+    border-bottom: 3px solid white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.header {
+    grid-area: header;
+    text-align: center;
+}
+
+.aside {
+    grid-area: aside;
+    text-align: center;
+}
+
+.main {
+    grid-area: main;
+    text-align: center;
+}
+
+.body {
+    grid-area: body;
+    text-align: center;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: black;
+    text-align: center;
+}
+
+/* PÁGINA ENTERA - VIDEO DE INTRODUCCIÓN */
+
+
+.video-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* PÁGINA ENTERA - Animaciones*/
+
+* {
+  opacity: 0;
+  animation: aparecer 2s forwards;
+  -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+  to {
+      opacity: 1;
+  }
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+/* PÁGINA ENTERA - IMAGEN DE FONDO */
+
+body {
+    background-image: url(https://wallpapers.com/images/hd/official-champions-league-trophy-1z5thdp1m7bws5ih.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+}
+
+/* NAV - FUENTE DE LETRA */
+
+@font-face {
+  font-family: 'ChampionsFont';
+  src: url('../Fonts/Champions-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Aplica la fuente */
+.champions-text {
+  font-family: 'ChampionsFont', sans-serif;
+}
+
+
+
+/* NAV - BARRA DE NAVEGACIÓN */
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkblue;
+  }
+  
+.nav  li {
+    list-style-type: none;
+    float: left;
+    background-color: darkblue;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover:not(.active) {
+    background-color: white;
+    color: darkblue;
+  }
+  
+  .active {
+    background-color: white;
+    color: darkblue;
+  }
+
+
+/* Unidades relativas */
+
+.header h1 {
+  text-align: center;
+  color: white;
+}
+
+.aside {
+  text-align: center;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.aside h3 {
+  text-align: center;
+}
+
+.aside ul li {
+  text-align: center;
+  color: white;
+  list-style-type: none;
+  background-color: blue;
+}
+
+.aside ul li strong {
+  color: white;
+}
+
+.main {
+  text-align: center;
+  color: white;
+}
+
+.main h2, h3 {
+  color: blue;
+}
+
+.body h2, h3 {
+  color: blue;
+}
+
+.body p {
+  color: white;
+}
+
+.footer p {
+  color: blue;
+  text-align: center;
+}

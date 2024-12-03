@@ -1,0 +1,259 @@
+/* PÁGINA ENTERA - LAYOUT */
+
+  /* 1- Define la cuadrícula principal de la página */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* 11 columnas */
+  grid-template-rows: 0.25fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.50fr; /* 8 filas */
+  gap: 0px 0px; /* Sin espacio entre las celdas */
+  font-family: 'Times New Roman', Times, serif;
+  grid-auto-flow: row; /* Organiza automáticamente las celdas en filas */
+  grid-template-areas: /* Define las áreas de la cuadrícula */
+      "nav nav nav nav nav nav nav nav nav nav nav"
+      "header header header header header header header header header header header"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "aside aside aside body body body body body main main main"
+      "footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+  /* 2- Define el área de navegación */
+.nav {
+  grid-area: nav; 
+  background-color: black;
+  border-bottom: 3px solid gold; /* Bordes dorados */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+  /* 3- Define el área de encabezado */
+.header {
+  grid-area: header;
+  text-align: center;
+}
+
+  /* 4- Define el área lateral */
+.aside {
+  grid-area: aside;
+}
+
+  /* 5- Define el área principal */
+.main {
+  grid-area: main;
+  text-align: center;
+  margin-right: 20px;
+}
+
+  /* 6- Define el área del cuerpo */
+.body {
+  grid-area: body;
+}
+
+  /* 7- Define el área del pie de página */
+.footer {
+  grid-area: footer;
+  background-color: black;
+  text-align: center;
+}
+
+/* PÁGINA ENTERA - Animaciones */
+
+  /* 1- Aplica animación de aparición a todos los elementos */
+* {
+opacity: 0; /* Inicialmente invisible */
+animation: aparecer 2s forwards; /* Animación de 2 segundos */
+-webkit-animation: aparecer 2s forwards; /* Soporte para WebKit */
+}
+
+  /* 2- Define la animación de aparecer */
+@keyframes aparecer {
+to {
+    opacity: 1; /* Elemento completamente visible al final de la animación */
+}
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+  /* 1- Estilos para tablets (pantallas medianas) */
+@media (max-width: 768px) {
+.container {
+    grid-template-areas:
+        "nav"
+        "header"
+        "main"
+        "aside"
+        "footer"; /* Reorganiza las áreas */
+    grid-template-columns: 1fr; /* Una sola columna */
+}
+
+.nav {
+    flex-direction: column; /* Dirección de los elementos en la navegación */
+    text-align: center; /* Centra el texto */
+}
+}
+
+  /* 2- Estilos para móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+body {
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+.nav {
+    font-size: 12px; /* Tamaño de fuente más pequeño para la navegación */
+}
+
+.main {
+    padding: 10px; /* Añade padding */
+}
+
+form h4 {
+    font-size: 18px; /* Tamaño de fuente más pequeño para los títulos */
+}
+
+label {
+    font-size: 14px; /* Tamaño de fuente más pequeño para las etiquetas */
+}
+
+input[type="submit"] {
+    font-size: 14px; /* Tamaño de fuente más pequeño para los botones */
+    padding: 5px 10px; /* Ajusta el padding de los botones */
+}
+}
+
+/* PÁGINA ENTERA - Para el contenido de la página web */
+
+  /* 1- Estilos para el fondo de la página */
+body {
+  background-image: url(https://fotografias.antena3.com/clipping/cmsimages02/2024/06/06/1513809A-D085-440A-85AB-589308C98831/imagen-balon-oro_98.jpg?crop=1200,675,x0,y0&width=1900&height=1069&optimize=low&format=webply);
+  background-position: center; /* Centra la imagen de fondo */
+  background-size: cover; /* Escala la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  margin: 0; /* Sin margen */
+}
+
+/* NAV - Barra de navegación */
+
+  /* 1- Estilos para la lista de navegación */
+.nav ul {
+    list-style-type: none; /* Sin puntos de lista */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita que los elementos floten fuera del contenedor */
+    background-color: black;
+  }
+
+  /* 2- Estilos para los elementos de la lista */
+.nav li {
+  list-style-type: none;
+  float: left; /* Flota a la izquierda */
+  background-color: black;
+}
+
+  /* 3- Estilos para los enlaces de navegación */
+  li a {
+    display: block; /* Bloque de visualización */
+    color: gold;
+    text-align: center;
+    padding: 14px 16px; /* Padding interno */
+    text-decoration: none; /* Sin subrayado */
+  }
+
+  /* 4- Estilos para los enlaces al pasar el ratón */
+  li a:hover:not(.active) {
+    background-color: gold;
+    color: black;
+  }
+
+  /* 5- Estilos para el enlace activo */
+  .active {
+    background-color: gold;
+    color: black;
+  }
+
+  /* */
+
+  #Clasificación:hover #Clasificación-content {
+    display: block;
+  }
+  
+
+/* MAIN - Formulario */
+
+  /* 1- Estilos para el formulario del Balón de Oro */
+  #FormularioBALONDEORO {
+    background-image: url(https://img.freepik.com/fotos-premium/fondo-negro-brillo-dorado-fondo-negro_994023-482635.jpg?semt=ais_hybrid);
+    border: 1px solid gold;
+    color: white;
+    text-align: center;
+    margin: 30px;
+  }
+
+  /* 2- Estilos para el área principal */
+.main {
+  text-align: center;
+  margin-top: 20px;
+}
+
+  /* 3- Estilos para las imágenes en el área principal */
+.main img {
+  max-width: 100%; /* Ancho máximo del 100% */
+  height: auto; /* Ajusta la altura automáticamente */
+}
+
+/* Unidades relativas */
+
+h1 {
+  text-align: center;
+  color: gold;
+  text-shadow: 2px 1px black;
+}
+
+h3 {
+  text-align: center;
+  color: gold;
+  text-shadow: 2px 1px black;
+}
+
+p {
+  font-size: 1rem; /* Relativo al tamaño de la fuente raíz */
+  line-height: 1.5em; /* Relativo al tamaño de la fuente del contenedor */
+  color: white;
+}
+
+.aside h2 {
+  color: gold;
+  text-shadow: 2px 1px black;
+  text-align: center;
+}
+
+.aside p {
+  color: white;
+  text-shadow: 2px 1px black;
+  text-align: center;
+  background-color: transparent;
+}
+
+.aside ul li {
+  color: white;
+  text-shadow: 2px 1px black;
+  background-color: transparent;
+}
+
+.aside ul li strong {
+  color: gold;
+  text-shadow: 2px 1px black;
+}
+
+.main h1, h2 {
+  color: gold;
+  text-shadow: 2px 1px black;
+  text-align: center;
+}
+
+.footer p {
+  color: gold;
+}

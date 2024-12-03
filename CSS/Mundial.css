@@ -1,0 +1,228 @@
+/* PÁGINA ENTERA - LAYOUT */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.33fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1.35fr;
+    gap: 0px 0px;
+    font-family: 'Times New Roman', Times, serif;
+    grid-auto-flow: row;
+    grid-template-areas:
+        "nav nav nav nav nav nav nav nav nav nav nav"
+        "header header header header header header header header header header header"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "aside aside aside body body body body body main main main"
+        "footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+.nav {
+    grid-area: nav;
+    background-color: goldenrod;
+    border-bottom: 3px solid black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.header {
+    grid-area: header;
+    margin-top: 20px;
+}
+
+.aside {
+    grid-area: aside;
+}
+
+.main {
+    grid-area: main;
+    margin-right: 15px;
+}
+
+.body {
+    grid-area: body;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: black;
+}
+
+/* PÁGINA ENTERA - Animaciones*/
+
+* {
+  opacity: 0;
+  animation: aparecer 2s forwards;
+  -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+  to {
+      opacity: 1;
+  }
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+/* Tablets (pantallas medianas) */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas:
+          "nav"
+          "header"
+          "main"
+          "aside"
+          "footer";
+      grid-template-columns: 1fr;
+  }
+
+  .nav {
+      flex-direction: column;
+      text-align: center;
+  }
+}
+
+/* Móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+  body {
+      font-size: 14px;
+  }
+
+  .nav {
+      font-size: 12px;
+  }
+
+  .main {
+      padding: 10px;
+  }
+
+  form h4 {
+      font-size: 18px;
+  }
+
+  label {
+      font-size: 14px;
+  }
+
+  input[type="submit"] {
+      font-size: 14px;
+      padding: 5px 10px;
+  }
+}
+
+
+
+/* Para el contenido de la página web */
+
+body {
+    background-image: url(https://wallpapers.com/images/hd/fifa-world-cup-glittery-gold-trophy-ogva5ipmopmm6bnx.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}
+
+/* PÁGINA ENTERA - Animaciones*/
+
+* {
+    opacity: 0;
+    animation: aparecer 2s forwards;
+    -webkit-animation: aparecer 2s forwards;
+}
+
+@keyframes aparecer {
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* NAV - Barra de navegación */
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+  }
+  
+.nav li {
+    list-style-type: none;
+    float: left;
+    background-color: goldenrod;
+  }
+  
+li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+li a:hover:not(.active) {
+    background-color: black;
+    color: goldenrod;
+  }
+  
+  .active {
+    background-color: black;
+    color: goldenrod;
+  }
+
+  /* Unidades relativas */
+
+.header h1 {
+    text-align: center;
+    color: gold;
+}
+
+.aside h2 {
+  text-align: center;
+  color: gold;
+}
+
+.main h2 {
+  text-align: center;
+  color: gold;
+}
+
+.main h3 {
+  text-align: center;
+  color: gold;
+}
+
+.body h2 {
+    text-align: center;
+    color: gold;
+}
+
+.body h3 {
+    text-align: center;
+    color: gold;
+}
+
+p {
+    font-size: 1rem; /* Relativo al tamaño de la fuente raíz */
+    line-height: 1.5em; /* Relativo al tamaño de la fuente del contenedor */
+    color: white;
+    text-align: center;
+}
+
+.footer p {
+  font-size: 1rem; /* Relativo al tamaño de la fuente raíz */
+  line-height: 1.5em; /* Relativo al tamaño de la fuente del contenedor */
+  color: goldenrod;
+  text-align: center;
+}
+
+.aside ul li {
+  color: white;
+  margin-left: 10px;
+}

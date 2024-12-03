@@ -1,0 +1,283 @@
+/* LAYOUT - Estructura de la página */
+
+  /* 1- Configuración de la cuadrícula principal de la página */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* 11 columnas */
+  grid-template-rows: 0.33fr 1.5fr 1fr 1fr 1fr 1fr 1fr 1fr; /* 8 filas */
+  gap: 0px 0px; /* Sin espacio entre celdas */
+  font-family: 'Times New Roman', Times, serif;
+  grid-auto-flow: row; /* Organiza las celdas automáticamente en filas */
+  grid-template-areas: /* Define las áreas de la cuadrícula */
+    "nav nav nav nav nav nav nav nav nav nav nav"
+    "header header header header header header header header header header header"
+    "aside aside aside body body body body body main main main"
+    "aside aside aside body body body body body main main main"
+    "aside aside aside body body body body body main main main"
+    "aside aside aside body body body body body main main main"
+    "aside aside aside body body body body body main main main"
+    "footer footer footer footer footer footer footer footer footer footer footer";
+}
+
+  /* 2- Área de navegación */
+.nav { 
+  grid-area: nav;
+  background-color: black; /* Fondo negro */
+  border-bottom: 3px solid red; /* Borde inferior rojo */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+  /* 3- Área de encabezado */
+.header { 
+  grid-area: header;
+}
+
+  /* 4- Área lateral */
+.aside { 
+  grid-area: aside;
+}
+
+  /* 5- Área principal */
+.main { 
+  grid-area: main;
+}
+
+  /* 6- Área del cuerpo */
+.body { 
+  grid-area: body;
+}
+
+  /* 7- Área del pie de página */
+.footer { 
+  grid-area: footer; /* Área del pie de página en la cuadrícula */
+  background-color: black;
+}
+
+/* PÁGINA ENTERA - Animaciones */
+
+  /* 1- Aplica animación de aparición a todos los elementos */
+* {
+opacity: 0; /* Inicialmente invisible */
+animation: aparecer 2s forwards; /* Animación de 2 segundos */
+-webkit-animation: aparecer 2s forwards; /* Soporte para WebKit */
+}
+
+  /* 2- Definición de la animación de aparecer */
+@keyframes aparecer {
+to {
+    opacity: 1; /* Elemento completamente visible al final de la animación */
+}
+}
+
+/* PÁGINA ENTERA - Grid para layouts flexibles */
+
+  /* 1- Configuración de un grid flexible */
+.grid {
+display: flex;
+flex-wrap: wrap; /* Permite que los ítems se envuelvan en filas nuevas */
+}
+
+  /* 2- Elementos del grid */
+.grid-item {
+flex: 1 1 300px; /* Cada ítem ocupa al menos 300px de ancho y puede crecer */
+margin: 10px; /* Espacio alrededor de cada ítem */
+background-color: white; /* Fondo blanco */
+padding: 1em; /* Espacio interno */
+box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra alrededor del ítem */
+}
+
+/* PÁGINA ENTERA - VISIBILIDAD DE LA PÁGINA EN VARIOS DISPOSITIVOS */
+
+  /* Media queries para hacer la página responsive */
+
+  /* 1- Estilos para tablets (pantallas medianas) */
+@media (max-width: 768px) {
+.container {
+    grid-template-areas:
+        "nav"
+        "header"
+        "main"
+        "aside"
+        "footer"; /* Reorganiza las áreas en una sola columna */
+    grid-template-columns: 1fr; /* Una sola columna */
+}
+
+.nav {
+    flex-direction: column; /* Coloca los elementos de la navegación en columna */
+    text-align: center; /* Centra el texto */
+}
+}
+
+  /* 2- Estilos para móviles (pantallas pequeñas) */
+@media (max-width: 480px) {
+body {
+    font-size: 14px; /* Reduce el tamaño de la fuente */
+}
+
+.nav {
+    font-size: 12px; /* Reduce el tamaño de la fuente para la navegación */
+}
+
+.main {
+    padding: 10px; /* Añade padding a la área principal */
+}
+
+form h4 {
+    font-size: 18px; /* Reduce el tamaño de la fuente para los encabezados del formulario */
+}
+
+label {
+    font-size: 14px; /* Reduce el tamaño de la fuente para las etiquetas */
+}
+
+input[type="submit"] {
+    font-size: 14px; /* Reduce el tamaño de la fuente para los botones */
+    padding: 5px 10px; /* Ajusta el padding de los botones */
+}
+}
+
+/* PÁGINA ENTERA - Para el contenido de la página web */
+
+  /* 1- Estilo del fondo de la página */
+body {
+  background-image: url(https://m.forebet.com/images/previews/8308.jpg); /* URL de la imagen de fondo */
+  background-size: cover; /* La imagen cubre toda la pantalla */
+  margin: 50px; /* Margen de 50px */
+  background-position: center; /* Centra la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  height: 100vh; /* Altura completa de la ventana */
+  margin: 0; /* Sin margen */
+}
+
+/* NAV - Barra de navegación horizontal */
+
+  /* 1- Estilo para la lista de navegación */
+ul {
+  list-style-type: none; /* Sin estilo de lista */
+  margin: 0; /* Sin margen */
+  padding: 0; /* Sin padding */
+  overflow: hidden; /* Evita que los elementos floten fuera del contenedor */
+  background-color: white; /* Fondo blanco */
+}
+
+  /* 2- Estilo para los elementos de la lista */
+li {
+  list-style-type: none; /* Sin estilo de lista */
+  float: left; /* Flota a la izquierda */
+  background-color: black; /* Fondo negro */
+}
+
+  /* 3- Estilo para los enlaces de navegación */
+li a {
+  display: block; /* Bloque de visualización */
+  color: red; /* Color rojo para el texto */
+  text-align: center; /* Centra el texto */
+  padding: 14px 16px; /* Padding interno */
+  text-decoration: none; /* Sin subrayado */
+}
+
+  /* 4- Estilo para los enlaces al pasar el ratón */
+li a:hover:not(.active) {
+  background-color: red; /* Fondo rojo al pasar el ratón */
+  color: white; /* Texto blanco al pasar el ratón */
+}
+
+  /* 5- Estilo para el enlace activo */
+.active {
+  background-color: red; /* Fondo rojo */
+  color: white; /* Texto blanco */
+}
+
+/* NAV - FUENTE DE LETRA */
+
+  /* 1- Define una fuente personalizada */
+@font-face {
+font-family: 'BundesligaFont';
+src: url('../Fonts/Bundesliga.ttf') format('truetype'); /* Ruta y formato de la fuente */
+font-weight: normal;
+font-style: normal;
+}
+
+  /* 2- Aplica la fuente personalizada */
+.bundesliga-text {
+font-family: 'BundesligaFont', sans-serif;
+}
+
+/* MAIN - Formulario */
+
+  /* 1- Estilo para el formulario */
+#FormularioBUNDESLIGA {
+  background-image: url(https://st.depositphotos.com/1074550/1734/i/450/depositphotos_17341511-stock-photo-abstract-luminous-red-and-black.jpg);
+  background-image: url(https://st.depositphotos.com/1074550/1734/i/450/depositphotos_17341511-stock-photo-abstract-luminous-red-and-black.jpg);
+  border: 1px solid red;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 30px;
+}
+
+.main {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.main img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Unidades relativas */
+
+h1 {
+  text-align: center;
+  color: red;
+  text-shadow: 2px 1px black;
+}
+
+h3 {
+  text-align: center;
+  color: red;
+  text-shadow: 2px 1px black;
+}
+
+p {
+  font-size: 1rem; /* Relativo al tamaño de la fuente raíz */
+  line-height: 1.5em; /* Relativo al tamaño de la fuente del contenedor */
+  color: white;
+}
+
+.aside h2 {
+  color: red;
+  text-shadow: 2px 1px black;
+  text-align: center;
+}
+
+.aside p {
+  color: white;
+  text-shadow: 2px 1px black;
+  text-align: center;
+  background-color: transparent;
+}
+
+.aside ul li {
+  color: white;
+  text-shadow: 2px 1px black;
+  text-align: center;
+  background-color: transparent;
+}
+
+.aside ul li strong {
+  color: red;
+  text-shadow: 2px 1px black;
+  text-align: center;
+  background-color: transparent;
+}
+
+.main h1, h2 {
+  color: red;
+  text-shadow: 2px 1px black;
+  text-align: center;
+}
